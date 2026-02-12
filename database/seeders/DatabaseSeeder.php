@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
 
         // 🔹 Optional: Create test user
         $user = User::firstOrCreate(
-            ['email' => 'admin@hospital.com'],
-            [
-                'name' => 'Super Admin',
-                'password' => bcrypt('password'),
-                'status' => 'active'
-            ]
-        );
+        ['email' => 'admin@hospital.com'],
+        [
+            'name' => 'Super Admin',
+            'password' => bcrypt('password'),
+            'status' => 'active'
+        ]
+    );
+
+        $user->assignRole('SUPER_ADMIN');
     }
 }
